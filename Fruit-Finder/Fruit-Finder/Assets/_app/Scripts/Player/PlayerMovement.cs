@@ -1,13 +1,16 @@
 using System;
+using _app.Scripts.Managers;
 using UnityEngine;
 
-namespace _app.Scripts
+namespace _app.Scripts.Player
 {
 
     public class PlayerMovement : MonoBehaviour
     {
         [Header("Movement")] 
         public float moveSpeed;
+
+        public Vector3 jumpForce;
 
         public Transform orientation;
 
@@ -28,6 +31,15 @@ namespace _app.Scripts
         {
             horizontalInput = Input.GetAxisRaw("Horizontal");
             verticalInput = Input.GetAxisRaw("Vertical");
+            
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                PlayerJump();
+            }
+        }
+        private void PlayerJump()
+        {
+            rb.AddForce(jumpForce, ForceMode.Impulse);
         }
 
         private void Update()

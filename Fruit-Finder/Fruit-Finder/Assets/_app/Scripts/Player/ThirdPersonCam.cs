@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _app.Scripts
+namespace _app.Scripts.Player
 {
     public class ThirdPersonCam : MonoBehaviour
     {
