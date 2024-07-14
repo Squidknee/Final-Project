@@ -5,7 +5,6 @@ namespace _app.Scripts.Managers
     public class AudioManager : MonoBehaviour
     {
         public static AudioManager instance;
-        public AudioClip audio;
         public AudioSource audioSource;
 
         private void Awake()
@@ -20,11 +19,11 @@ namespace _app.Scripts.Managers
             }
         }
 
-        public void PlayAudio()
+        public void PlayAudio(AudioClip sound)
         {
-            if (audioSource != null && audio != null)
+            if (audioSource != null && sound != null)
             {
-                audioSource.clip = audio;
+                audioSource.clip = sound;
                 audioSource.Play();
             }
             else

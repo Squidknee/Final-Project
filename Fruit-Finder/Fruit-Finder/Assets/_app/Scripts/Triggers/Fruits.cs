@@ -22,6 +22,7 @@ namespace _app.Scripts.Triggers
       //what world fruit can spawn in
       public ArrayList spawnLocation;
 
+      public AudioClip pickUp;
       public void OnTriggerEnter(Collider other)
       {
          if (other.CompareTag("Player"))
@@ -29,9 +30,9 @@ namespace _app.Scripts.Triggers
             if (AudioManager.instance != null && GameManager.instance != null)
             {
                //if the backpack is not full
-               AudioManager.instance.PlayAudio();
+               AudioManager.instance.PlayAudio(pickUp);
                GameManager.instance.ChangeStorageAmount(countAmount);
-               GameManager.instance.ChangeMoney(worth);
+               GameManager.instance.AddToWalletMoney(worth);
                Destroy(gameObject);
             }
             else
