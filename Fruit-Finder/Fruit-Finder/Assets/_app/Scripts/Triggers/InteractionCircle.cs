@@ -28,7 +28,7 @@ namespace _app.Scripts.Triggers
                         if (playerAmount != 0)
                         {
                             AudioManager.instance.PlayAudio(cashRegister);
-                            backpackText.text = ("Storage: 0/20");
+                            backpackText.text = ("Storage: 0/" + GameManager.instance.getStorageAmount());
                             GameManager.instance.AddToBankMoney();
                             GameManager.instance.winCondition();
                         }

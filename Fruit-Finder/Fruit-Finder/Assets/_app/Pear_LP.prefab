@@ -106,6 +106,7 @@ MonoBehaviour:
   worth: 4
   fruitType: 
   pickUp: {fileID: 8300000, guid: 683dd02484eb30f47ae3fe88557110f4, type: 3}
+  fullBag: {fileID: 8300000, guid: 67d3bebd9f0a74f48af4102029e92b86, type: 3}
 --- !u!65 &236944838689401364
 BoxCollider:
   m_ObjectHideFlags: 0

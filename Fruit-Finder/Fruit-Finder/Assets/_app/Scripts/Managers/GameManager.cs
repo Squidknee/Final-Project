@@ -16,6 +16,7 @@ namespace _app.Scripts.Managers
         public TMP_Text bankText;
 
         public GameObject gameOver;
+        public int winAmount;
         private void Awake()
         {
             if (instance != null)
@@ -71,9 +72,13 @@ namespace _app.Scripts.Managers
         {
             return bank;
         }
+        public int getStorageAmount()
+        {
+            return storageAmount;
+        }
         public void winCondition()
         {
-            if (bank >= 50)
+            if (bank >= winAmount)
             {
                 gameOver.SetActive(true);
             }
