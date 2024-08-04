@@ -16,16 +16,20 @@ namespace _app.Scripts.Managers
         public TMP_Text bankText;
 
         public GameObject gameOver;
+        
+        public GameObject upgradeScreen;
+        
         public int winAmount;
         private void Awake()
         {
-            if (instance != null)
+            if (instance != null && instance != this)
             {
-                Destroy((this));
+                Destroy(gameObject); // Destroy the duplicate instance
             }
             else
             {
                 instance = this;
+                DontDestroyOnLoad(gameObject);
             }
         }
         
@@ -53,17 +57,28 @@ namespace _app.Scripts.Managers
             bankText.text = ("Bank: " + bank.ToString());
         }
 
-        public void upgrade()
+        public void showUpgrade()
         {
-            //prompt the user to get either a backpack upgrade or a boots upgrade
-             //check to see if they have enough resources
-             //subtract fruit coins from bank
-             //edit either storage or boots by what upgrades
-            //not implemented yet
-            Debug.Log("soon");
+            upgradeScreen.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        public void upgrade(int deducted)
+        {
+            //bank subtracts
+            bank -= deducted;
+            //bank text gets updated
+            bankText.text = ("Bank: " + bank.ToString());
         }
         
-
+        public void closePanel()
+        {
+            upgradeScreen.SetActive(false);
+            Cursor.visible = false; // This hides the cursor
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        
         public int getPlayerAmount()
         {
             return playerAmount;
@@ -75,6 +90,11 @@ namespace _app.Scripts.Managers
         public int getStorageAmount()
         {
             return storageAmount;
+        }
+
+        public void setStorageAmount(int amnt)
+        {
+            storageAmount = amnt;
         }
         public void winCondition()
         {
