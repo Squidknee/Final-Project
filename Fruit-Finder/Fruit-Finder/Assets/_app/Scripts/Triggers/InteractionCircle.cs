@@ -10,6 +10,7 @@ namespace _app.Scripts.Triggers
         public TMP_Text bankText;
         private bool entered = false;
         public AudioClip cashRegister;
+        public GameObject EText;
 
         public void OnTriggerEnter(Collider other)
         {
@@ -20,7 +21,7 @@ namespace _app.Scripts.Triggers
                     //flag entered set to true
                     entered = true;
                     //if flag is true, allow interaction with E
-                    
+                    EText.SetActive(true);
                     if (GameManager.instance != null)
                     {
                         //backpack empties
@@ -32,13 +33,6 @@ namespace _app.Scripts.Triggers
                             GameManager.instance.AddToBankMoney();
                             GameManager.instance.winCondition();
                         }
-                        //TODO
-                        //if the player clicks the E button
-                       // if (Input.GetKeyDown(KeyCode.E))
-                       // {
-                            // Call the method to handle the interaction
-                        //    GameManager.instance.upgrade();
-                        //}
                     }
                     else
                     {
@@ -55,7 +49,20 @@ namespace _app.Scripts.Triggers
         public void OnTriggerExit(Collider other)
         {
             entered = false;
+            EText.SetActive(false);
+            GameManager.instance.closePanel();
             Debug.Log(other.transform.name + " Exited Trigger");
+        }
+
+        private void Update()
+        {
+            if (entered)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    GameManager.instance.showUpgrade();
+                }
+            }
         }
     }
 }

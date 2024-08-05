@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using _app.Scripts.Managers;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
 namespace _app.Scripts.Triggers
@@ -20,7 +18,7 @@ namespace _app.Scripts.Triggers
       public string fruitType;
 
       //what world fruit can spawn in
-      public ArrayList spawnLocation;
+    //  public ArrayList spawnLocation;
 
       public AudioClip pickUp;
       public AudioClip fullBag;
