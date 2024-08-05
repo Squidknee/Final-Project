@@ -11,6 +11,10 @@ namespace _app.Scripts.Systems
         public float textSpeed;
 
         private int index;
+        
+        //Audio Source in this scene is by 
+        //https://freesound.org/people/SondreDrakensson/sounds/749371/
+        
         void Start()
         {
             textComponent.text = string.Empty;

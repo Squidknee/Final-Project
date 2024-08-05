@@ -103,5 +103,10 @@ namespace _app.Scripts.Managers
                 gameOver.SetActive(true);
             }
         }
+        
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }
